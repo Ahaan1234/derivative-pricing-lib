@@ -21,4 +21,6 @@ def price(option, model: BSModel, t: float) -> float:
     if str(option.option_type) == "call":
         return S * math.exp(-q * t) * norm.cdf(d1) - K * math.exp(-r * t) * norm.cdf(d2)
     else:
-        return K * math.exp(-r * t) * norm.cdf(-d2) - S * math.exp(-q * t) * norm.cdf(-d1)
+        return K * math.exp(-r * t) * norm.cdf(-d2) - S * math.exp(-q * t) * norm.cdf(
+            -d1
+        )

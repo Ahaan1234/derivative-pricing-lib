@@ -26,7 +26,8 @@ def setup(snap):
 def test_call_price_near_known_value(setup):
     opt, model, t = setup
     call_price = price(opt, model, t)
-    assert abs(call_price - 6.89) < 0.01
+    # S=100, K=100, T≈0.249, r=0.05, q=0.01, σ=0.20 → ~4.47
+    assert abs(call_price - 4.47) < 0.01
 
 
 def test_put_call_parity(setup):
